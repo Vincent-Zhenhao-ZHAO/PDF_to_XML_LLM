@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/e57fb573df6fa5056c9fb81b5eea201b -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="chrome-extension://fgddmllnllkalaagkghckoinaemmogpe/scripts/content/gps.js"></script><title>Python code for marking regions of interest in an image for OCR – Medium</title><meta name="description" content="You can&#39;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or window. Reload to refresh your session. Reload to refresh your session."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body data-new-gr-c-s-check-loaded="14.1185.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1185.0"><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./d42acf86e4d6562819cf4cd37d1195e7.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-16b9b5e1f8b5.css"><div id="gist104070832" class="gist">
+    <div class="gist-file" translate="no" data-color-mode="light" data-light-theme="light">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container">
+  <div id="file-marking_roi-py" class="file my-2">
+    
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
+        
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template"></template>
+<template class="js-line-alert-template"></template>
+
+  <table data-hpc="" class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip="" data-tagsearch-lang="Python" data-tagsearch-path="Marking_ROI.py">
+        <tbody><tr>
+          <td id="file-marking_roi-py-L1" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="1"></td>
+          <td id="file-marking_roi-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"># use this command to install open cv2</span></td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L2" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="2"></td>
+          <td id="file-marking_roi-py-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c"># pip install opencv-python</span></td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L3" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="3"></td>
+          <td id="file-marking_roi-py-LC3" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L4" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="4"></td>
+          <td id="file-marking_roi-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c"># use this command to install PIL</span></td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L5" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="5"></td>
+          <td id="file-marking_roi-py-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-c"># pip install Pillow</span></td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L6" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="6"></td>
+          <td id="file-marking_roi-py-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L7" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="7"></td>
+          <td id="file-marking_roi-py-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> <span class="pl-s1">cv2</span></td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L8" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="8"></td>
+          <td id="file-marking_roi-py-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> <span class="pl-v">PIL</span> <span class="pl-k">import</span> <span class="pl-v">Image</span></td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L9" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="9"></td>
+          <td id="file-marking_roi-py-LC9" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L10" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="10"></td>
+          <td id="file-marking_roi-py-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">mark_region</span>(<span class="pl-s1">imagE_path</span>):</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L11" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="11"></td>
+          <td id="file-marking_roi-py-LC11" class="blob-code blob-code-inner js-file-line">    </td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L12" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="12"></td>
+          <td id="file-marking_roi-py-LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">im</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">imread</span>(<span class="pl-s1">image_path</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L13" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="13"></td>
+          <td id="file-marking_roi-py-LC13" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L14" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="14"></td>
+          <td id="file-marking_roi-py-LC14" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">gray</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">cvtColor</span>(<span class="pl-s1">im</span>, <span class="pl-s1">cv2</span>.<span class="pl-v">COLOR_BGR2GRAY</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L15" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="15"></td>
+          <td id="file-marking_roi-py-LC15" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">blur</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-v">GaussianBlur</span>(<span class="pl-s1">gray</span>, (<span class="pl-c1">9</span>,<span class="pl-c1">9</span>), <span class="pl-c1">0</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L16" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="16"></td>
+          <td id="file-marking_roi-py-LC16" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">thresh</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">adaptiveThreshold</span>(<span class="pl-s1">blur</span>,<span class="pl-c1">255</span>,<span class="pl-s1">cv2</span>.<span class="pl-v">ADAPTIVE_THRESH_GAUSSIAN_C</span>, <span class="pl-s1">cv2</span>.<span class="pl-v">THRESH_BINARY_INV</span>,<span class="pl-c1">11</span>,<span class="pl-c1">30</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L17" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="17"></td>
+          <td id="file-marking_roi-py-LC17" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L18" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="18"></td>
+          <td id="file-marking_roi-py-LC18" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"># Dilate to combine adjacent text contours</span></td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L19" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="19"></td>
+          <td id="file-marking_roi-py-LC19" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">kernel</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">getStructuringElement</span>(<span class="pl-s1">cv2</span>.<span class="pl-v">MORPH_RECT</span>, (<span class="pl-c1">9</span>,<span class="pl-c1">9</span>))</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L20" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="20"></td>
+          <td id="file-marking_roi-py-LC20" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">dilate</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">dilate</span>(<span class="pl-s1">thresh</span>, <span class="pl-s1">kernel</span>, <span class="pl-s1">iterations</span><span class="pl-c1">=</span><span class="pl-c1">4</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L21" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="21"></td>
+          <td id="file-marking_roi-py-LC21" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L22" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="22"></td>
+          <td id="file-marking_roi-py-LC22" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"># Find contours, highlight text areas, and extract ROIs</span></td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L23" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="23"></td>
+          <td id="file-marking_roi-py-LC23" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">cnts</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">findContours</span>(<span class="pl-s1">dilate</span>, <span class="pl-s1">cv2</span>.<span class="pl-v">RETR_EXTERNAL</span>, <span class="pl-s1">cv2</span>.<span class="pl-v">CHAIN_APPROX_SIMPLE</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L24" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="24"></td>
+          <td id="file-marking_roi-py-LC24" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">cnts</span> <span class="pl-c1">=</span> <span class="pl-s1">cnts</span>[<span class="pl-c1">0</span>] <span class="pl-k">if</span> <span class="pl-en">len</span>(<span class="pl-s1">cnts</span>) <span class="pl-c1">==</span> <span class="pl-c1">2</span> <span class="pl-k">else</span> <span class="pl-s1">cnts</span>[<span class="pl-c1">1</span>]</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L25" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="25"></td>
+          <td id="file-marking_roi-py-LC25" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L26" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="26"></td>
+          <td id="file-marking_roi-py-LC26" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">line_items_coordinates</span> <span class="pl-c1">=</span> []</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L27" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="27"></td>
+          <td id="file-marking_roi-py-LC27" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">for</span> <span class="pl-s1">c</span> <span class="pl-c1">in</span> <span class="pl-s1">cnts</span>:</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L28" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="28"></td>
+          <td id="file-marking_roi-py-LC28" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">area</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">contourArea</span>(<span class="pl-s1">c</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L29" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="29"></td>
+          <td id="file-marking_roi-py-LC29" class="blob-code blob-code-inner js-file-line">        <span class="pl-s1">x</span>,<span class="pl-s1">y</span>,<span class="pl-s1">w</span>,<span class="pl-s1">h</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">boundingRect</span>(<span class="pl-s1">c</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L30" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="30"></td>
+          <td id="file-marking_roi-py-LC30" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L31" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="31"></td>
+          <td id="file-marking_roi-py-LC31" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> <span class="pl-s1">y</span> <span class="pl-c1">&gt;=</span> <span class="pl-c1">600</span> <span class="pl-c1">and</span> <span class="pl-s1">x</span> <span class="pl-c1">&lt;=</span> <span class="pl-c1">1000</span>:</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L32" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="32"></td>
+          <td id="file-marking_roi-py-LC32" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> <span class="pl-s1">area</span> <span class="pl-c1">&gt;</span> <span class="pl-c1">10000</span>:</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L33" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="33"></td>
+          <td id="file-marking_roi-py-LC33" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">image</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">rectangle</span>(<span class="pl-s1">im</span>, (<span class="pl-s1">x</span>,<span class="pl-s1">y</span>), (<span class="pl-c1">2200</span>, <span class="pl-s1">y</span><span class="pl-c1">+</span><span class="pl-s1">h</span>), <span class="pl-s1">color</span><span class="pl-c1">=</span>(<span class="pl-c1">255</span>,<span class="pl-c1">0</span>,<span class="pl-c1">255</span>), <span class="pl-s1">thickness</span><span class="pl-c1">=</span><span class="pl-c1">3</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L34" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="34"></td>
+          <td id="file-marking_roi-py-LC34" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">line_items_coordinates</span>.<span class="pl-en">append</span>([(<span class="pl-s1">x</span>,<span class="pl-s1">y</span>), (<span class="pl-c1">2200</span>, <span class="pl-s1">y</span><span class="pl-c1">+</span><span class="pl-s1">h</span>)])</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L35" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="35"></td>
+          <td id="file-marking_roi-py-LC35" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L36" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="36"></td>
+          <td id="file-marking_roi-py-LC36" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> <span class="pl-s1">y</span> <span class="pl-c1">&gt;=</span> <span class="pl-c1">2400</span> <span class="pl-c1">and</span> <span class="pl-s1">x</span><span class="pl-c1">&lt;=</span> <span class="pl-c1">2000</span>:</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L37" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="37"></td>
+          <td id="file-marking_roi-py-LC37" class="blob-code blob-code-inner js-file-line">            <span class="pl-s1">image</span> <span class="pl-c1">=</span> <span class="pl-s1">cv2</span>.<span class="pl-en">rectangle</span>(<span class="pl-s1">im</span>, (<span class="pl-s1">x</span>,<span class="pl-s1">y</span>), (<span class="pl-c1">2200</span>, <span class="pl-s1">y</span><span class="pl-c1">+</span><span class="pl-s1">h</span>), <span class="pl-s1">color</span><span class="pl-c1">=</span>(<span class="pl-c1">255</span>,<span class="pl-c1">0</span>,<span class="pl-c1">255</span>), <span class="pl-s1">thickness</span><span class="pl-c1">=</span><span class="pl-c1">3</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L38" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="38"></td>
+          <td id="file-marking_roi-py-LC38" class="blob-code blob-code-inner js-file-line">            <span class="pl-s1">line_items_coordinates</span>.<span class="pl-en">append</span>([(<span class="pl-s1">x</span>,<span class="pl-s1">y</span>), (<span class="pl-c1">2200</span>, <span class="pl-s1">y</span><span class="pl-c1">+</span><span class="pl-s1">h</span>)])</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L39" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="39"></td>
+          <td id="file-marking_roi-py-LC39" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L40" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="40"></td>
+          <td id="file-marking_roi-py-LC40" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-marking_roi-py-L41" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="41"></td>
+          <td id="file-marking_roi-py-LC41" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-s1">image</span>, <span class="pl-s1">line_items_coordinates</span></td>
+        </tr>
+  </tbody></table>
+</div>
+
+
+    </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/akash-ch2812/d42acf86e4d6562819cf4cd37d1195e7/raw/e371b0b280607c5bc25e415ec05a024d8639d9fe/Marking_ROI.py" style="float:right" class="Link--inTextBlock">view raw</a>
+        <a href="https://gist.github.com/akash-ch2812/d42acf86e4d6562819cf4cd37d1195e7#file-marking_roi-py" class="Link--inTextBlock">
+          Marking_ROI.py
+        </a>
+        hosted with ❤ by <a class="Link--inTextBlock" href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script><script defer="" src="./vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;89c55e91ef4d63af&quot;,&quot;version&quot;:&quot;2024.4.1&quot;,&quot;token&quot;:&quot;0b5f665943484354a59c39c6833f7078&quot;}" crossorigin="anonymous"></script>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/c53e814007e090f8a8666027b0c36020 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="chrome-extension://fgddmllnllkalaagkghckoinaemmogpe/scripts/content/gps.js"></script><title>Code for converting PDF file to Image in Python – Medium</title><meta name="description" content="You can&#39;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or window. Reload to refresh your session. Reload to refresh your session."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body data-new-gr-c-s-check-loaded="14.1185.0" data-gr-ext-installed=""><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./1e2c0991105d0ed2f0fa2cadbee00362.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-16b9b5e1f8b5.css"><div id="gist104070479" class="gist">
+    <div class="gist-file" translate="no" data-color-mode="light" data-light-theme="light">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container">
+  <div id="file-pdf_to_image-py" class="file my-2">
+    
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
+        
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template"></template>
+<template class="js-line-alert-template"></template>
+
+  <table data-hpc="" class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip="" data-tagsearch-lang="Python" data-tagsearch-path="PDF_to_Image.py">
+        <tbody><tr>
+          <td id="file-pdf_to_image-py-L1" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="1"></td>
+          <td id="file-pdf_to_image-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> <span class="pl-s1">pdf2image</span> <span class="pl-k">import</span> <span class="pl-s1">convert_from_path</span></td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L2" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="2"></td>
+          <td id="file-pdf_to_image-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L3" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="3"></td>
+          <td id="file-pdf_to_image-py-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">pdfs</span> <span class="pl-c1">=</span> <span class="pl-s">r"provide path to pdf file"</span></td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L4" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="4"></td>
+          <td id="file-pdf_to_image-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">pages</span> <span class="pl-c1">=</span> <span class="pl-en">convert_from_path</span>(<span class="pl-s1">pdfs</span>, <span class="pl-c1">350</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L5" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="5"></td>
+          <td id="file-pdf_to_image-py-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L6" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="6"></td>
+          <td id="file-pdf_to_image-py-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span></td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L7" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="7"></td>
+          <td id="file-pdf_to_image-py-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">for</span> <span class="pl-s1">page</span> <span class="pl-c1">in</span> <span class="pl-s1">pages</span>:</td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L8" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="8"></td>
+          <td id="file-pdf_to_image-py-LC8" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">image_name</span> <span class="pl-c1">=</span> <span class="pl-s">"Page_"</span> <span class="pl-c1">+</span> <span class="pl-en">str</span>(<span class="pl-s1">i</span>) <span class="pl-c1">+</span> <span class="pl-s">".jpg"</span>  </td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L9" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="9"></td>
+          <td id="file-pdf_to_image-py-LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">page</span>.<span class="pl-en">save</span>(<span class="pl-s1">image_name</span>, <span class="pl-s">"JPEG"</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-pdf_to_image-py-L10" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="10"></td>
+          <td id="file-pdf_to_image-py-LC10" class="blob-code blob-code-inner js-file-line">    <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-s1">i</span><span class="pl-c1">+</span><span class="pl-c1">1</span>        </td>
+        </tr>
+  </tbody></table>
+</div>
+
+
+    </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/akash-ch2812/1e2c0991105d0ed2f0fa2cadbee00362/raw/4c840fcd8ee5ec8e492f968e25d80af84ff21df0/PDF_to_Image.py" style="float:right" class="Link--inTextBlock">view raw</a>
+        <a href="https://gist.github.com/akash-ch2812/1e2c0991105d0ed2f0fa2cadbee00362#file-pdf_to_image-py" class="Link--inTextBlock">
+          PDF_to_Image.py
+        </a>
+        hosted with ❤ by <a class="Link--inTextBlock" href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script><script defer="" src="./vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;89c55e6d1bce63af&quot;,&quot;version&quot;:&quot;2024.4.1&quot;,&quot;token&quot;:&quot;0b5f665943484354a59c39c6833f7078&quot;}" crossorigin="anonymous"></script>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
