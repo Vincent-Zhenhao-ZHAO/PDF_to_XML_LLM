@@ -1,0 +1,822 @@
+Computers in Biology and Medicine 141 (2022) 105037
+Available online 14 November 2021
+0010-4825/© 2021 Elsevier Ltd. All rights reserved.AGNet: Automatic generation network for skin imaging reports 
+Fan Wua,c,1, Haiqiong Yangb,1, Linlin Pengb, Zongkai Liana,c, Mingxin Lib, Gang Qub, 
+Shancheng Jianga,c,*, Yu Hana,c,** 
+aThe School of Intelligent Systems Engineering, Sun Yat-Sen University, No. 135, Xingang Xi Road, Guangzhou, 510275, PR China 
+bDalian Dermatosis Hospital, No. 788, Changjiang Road, Shahekou District, Dalian, PR China 
+cGuangdong Provincial Key Laboratory of Fire Science and Technology, Guangzhou, 510006, China   
+ARTICLE INFO  
+Index Terms: 
+Attention mechanism 
+Deep learning 
+Image caption 
+Medical imaging 
+Skin imaging report generation ABSTRACT  
+Medical imaging has been increasingly adopted in the process of medical diagnosis, especially for skin diseases, 
+where diagnoses based on skin pathology are extremely accurate. The diagnostic reports of skin pathology im-
+ages has the distinguishing features of extreme repetitiveness and rigid formatting. However, reports written by 
+inexperienced radiologists and pathologists can have a high error rate, and even experienced clinicians can find 
+the reporting task both tedious and time-consuming. To address this challenge, this paper studies the automatic 
+generation of diagnostic reports based on images of skin pathologies. A novel deep learning-based image caption 
+framework named the automatic generation network (AGNet), which is an effective network for the automatic 
+generation of skin imaging reports, is proposed. The proposed AGNet consists of four parts: (1) the image model 
+that extracts features and classifies images; (2) the language model that codes data and generates words using 
+comprehensible language; (3) the attention module that connects the “tail” of the image model and the “head ” of 
+the language model, and computes the relationship between images and captions; (4) the embedding and la-
+beling module that processes the input caption data. In case study, The AGNet is verified on a skin pathological 
+image dataset and compared with several state-of-the-art models. The results show that the AGNet achieves the 
+highest scores of the evaluation metrics of image caption among all comparison models, demonstrating the 
+promising performance of the proposed method.   
+1.Introduction 
+Skin diseases have the characteristics of a wide range, various cate-
+gories, and a long treatment cycle. In most hospitals, especially those 
+that are not specialized and are of small or medium size, the derma -
+tology department is understaffed, and there is a high probability of 
+misdiagnosis. Namely, a number of skin diseases can be easily diagnosed 
+by the naked-eye method, but related research has indicated that, with 
+the help of dermatoscopy, experts could achieve a sensitivity of 90% and 
+a specificity of 59% in the diagnosis of skin lesions. Still, most derma -
+tologists can reach a sensitivity of only about 62%, which is far below 
+that of experts. Moreover, it takes about 5–10 min to enter each image ’s 
+results into a computer, which in total consumes an inordinate amount 
+of working time. In addition, writing imaging reports is unpleasant for both experienced and inexperienced clinicians. Therefore, much recent 
+research has been devoted to the application of medical image pro-
+cessing, traditional pattern recognition, modern machine learning for 
+medical images, and advanced artificial intelligence technology to the 
+extraction of key information implied by detection results for the pur-
+pose of achieving automatic diagnoses of skin lesions [1,2]. Recent 
+research findings have considerably aided dermatologists and general 
+practitioners in processing image data faster and providing more reliable 
+diagnoses, and there are few doubts that modern diagnostic technology 
+will eventually achieve its full potential. However, most computer-aided 
+diagnosis methods have been confined to pathological image classifi -
+cation based on a single image source for detecting skin disease and 
+extraction of the pathological area. 
+Furthermore, the inability to interpret model predictions in 
+*Corresponding author. The School of Intelligent Systems Engineering, Sun Yat-Sen University, No. 135, Xingang Xi Road, Guangzhou, 510275, PR China. 
+**Corresponding author. The School of Intelligent Systems Engineering, Sun Yat-Sen University, No. 135, Xingang Xi Road, Guangzhou, 510275, PR China. 
+E-mail addresses: wufan55@mail2.sysu.edu.cn (F. Wu), 396244148@qq.com (H. Yang), haiguaipll@163.com (L. Peng), lianzk@mail2.sysu.edu.cn (Z. Lian), 
+lmxpfbyy@sina.com (M. Li), 1638654878@qq.com (G. Qu), jiangshch3@mail.sysu.edu.cn (S. Jiang), hanyu25@mail.sysu.edu.cn , hanyu25@mail.sysu.edu.cn 
+(Y. Han).   
+1 These two authors indicated by contributed equally to this work. 
+Contents lists available at ScienceDirect 
+Computers in Biology and Medicine 
+u{�~zkw! s{yo|kro>! ÐÐÐ1ow�o �to~1m{y2w{m k�o2m{y|lt{ yon!
+https://doi.org/10.1016/j.compbiomed.2021.105037 
+Received 29 June 2021; Received in revised form 11 November 2021; Accepted 11 November 2021   
+Computers in Biology and Medicine 141 (2022) 105037
+2semantically and visually meaningful ways is a well-known shortcoming 
+of most computer-aided diagnosis methods, which makes these methods 
+difficult to use in actual diagnosis. The intelligent extraction of medical 
+information is still in its infancy, and high-quality and properly labeled 
+images of skin disease samples are scarce, especially in the case of his-
+topathological images that must be collected by a microscope. Thus, it is 
+challenging for practitioners to exploit most deep learning-based 
+architectures. 
+Aiming at the mentioned limitations, this paper proposes a method 
+that can automatically generate diagnostic reports. The structure of the 
+proposed method is presented in Fig. 1. The main objective is to answer 
+three leading questions. First, how it can be ensured that a generated 
+report ’s accuracy meets the standards required for medical images. 
+Second, how high calculation speeds can be achieved so that the model 
+completes the calculation and gives feedback within a short time span. 
+Third, what is the best way to visualize the judgment basis, that is, how 
+text generated by the model reflects appropriate areas in an image. 
+These questions are addressed by proposing a deep learning-based 
+image caption framework named the automatic generation network 
+(AGNet) through combining a novel image model and a language model. 
+With the aim of visualizing the judgment basis, a novel attention mod-
+ule, namely the similarity-attention mechanism, which bridges the gap 
+between the image model and the language model and calculates the 
+mapping relationship between text and image data efficiently, is 
+designed. In addition, a new embedding and labeling module is intro-
+duced to embed the caption information into the language model as well 
+as to merge the label information into the caption data. Proceed from the 
+questions raised above, Our main contributions can be summarized into 
+three points. 
+(1)We proposed a novel deep learning-based image caption frame -
+work, namely AGNet (Automatic Generation Network), through 
+combining a novel image model and language model which can 
+automatically generate diagnosis on the basis of input skin 
+pathological image.  
+(2) With the purpose of visualizing the “judgment basis ” to provide 
+visual explanations for the skin disease specialists, we design a 
+novel attention module, namely “similarity-attention ” mecha -
+nism, that bridges the gap between the image model and the 
+language model and calculates the mapping relationship between 
+text and image data more efficiently. We also propose a new 
+“embedding & labeling ” module to embed the caption informa -
+tion into the language model as well as merge the label infor-
+mation into the caption data.  
+(3) Extensive experimental results show that AGNet outperforms and 
+achieves the best over several well-known methods on medical 
+image caption with the proposed model needing a much fewer 
+training time. 
+The rest of this paper is organized as follows. Section 2 reviews the 
+related work. Section 3 introduces the proposed AGNet method. Section 
+4 presents the experimental results. Finally, Section 5 gives a brief summary. 
+2.Related work 
+2.1. Attention mechanism 
+The attention mechanism [3,4], which was derived from human 
+intuition, has been widely applied to medical image analysis [5,6] and 
+has yielded significant performance improvements in various 
+sequence-learning tasks. The attention mechanism calculates an 
+importance score for each candidate vector first, then normalizes the 
+scores to weights using the soft-max function, and finally, applies the 
+obtained weights to the candidates to generate the attention result that 
+represents a weighted average vector [7]. The attention mechanisms can 
+be of various types, including the spatial and channel-wise attention [8], 
+adaptive attention [9], stacked attention [10], multi-level attention 
+[11], top-down visual attention [12], multi-head attention, and 
+self-attention [13]. The well-known and significant work of Vaswani 
+et al. [13] has shown that the state-of-the-art results in machine trans -
+lation can be achieved by using only the self-attention mechanism. 
+Several recent studies have extended the idea of employing the 
+self-attention mechanism to computer vision tasks [14–16], which was 
+our main inspiration to use self-attention in image captioning to model 
+relationships between the objects of interest and the corresponding 
+words in a diagnostic report on the image. 
+2.2. Image captioning 
+Earlier methods for image captioning were based on rules that 
+generated slotted caption templates first and then filled the slots with 
+the result of object detection, attribute prediction, and scene recogni -
+tion. However, more recent methods have been neural-based [17–23], 
+and most of them use the deep encoder-decoder framework inspired by 
+the neural-based machine translation. For instance, an end-to-end 
+framework, where a convolutional neural network (CNN) is used for 
+encoding of the image-to-feature vector and followed by a long 
+short-term memory (LSTM) network [24] used for decoding to a caption, 
+has been proposed. In Ref. [7], the spatial attention mechanism based on 
+a CNN feature map was used to incorporate visual context. The latest 
+studies have highlighted that adding an attention module to the model 
+can significantly improve model performance. Chen et al. [8] proposed a 
+spatial and channel-wise attention model. Liu et al. [9] introduced an 
+adaptive attention mechanism to determine when visual attention 
+should be activated. Recent developments include integrating more 
+complex information, such as information on objects, attributes, and 
+relationships, to obtain better descriptions [12,25–28] by discovering 
+the causal relationship between objects in a particular image [29]. 
+Furthermore, considering the good performance and universality of the 
+LSTM in interpreting image data, the proposed method uses the LSTM as 
+a skeleton of the language model for caption generation. 
+2.3. Textual labeling of medical images 
+Previously, there have been several methods that perform positively 
+in similar tasks. For instance, Tian et al. [30] developed a descriptive 
+review framework based on the Latent Dirichlet Allocation (LDA), and 
+studied the application of deep learning-based classification, object 
+detection, segmentation, and image generation in the field of medical 
+images. Chai et al. [31] designed a multi-branch neural network 
+(MB-NN) model that can automatically extract important areas of im-
+ages and obtain domain knowledge features. However, the objective of 
+this study is to generate a diagnostic report based on the attention re-
+gions, while the work of Chai et al. has failed to provide a practical 
+method to illustrate the relationship between text and image data. In 
+view of this, we eventually turn to the most suitable method. 
+There has been an increasing trend in applying both machine 
+Fig. 1.Overview of the AGNet model.  F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+3learning and deep learning to medical images [32–34], attaching text to 
+medical images [18,35–37], and processing mining [38–40]. As for the 
+first two tasks, the target text is either fully structured or semi-structured 
+(e.g., tags and templates) rather than being a natural text. Kisilev et al. 
+[41] constructed a pipeline for predicting the attributes of medical im-
+ages. Shin et al. [17] adopted a CNN-RNN framework to predict tags (e. 
+g., locations and severities) of chest X-ray images. Reference [36] has 
+most closely related to this study, but in Ref. [36], the authors aimed to 
+generate semi-structured pathology reports whose contents were 
+restricted to five pre-defined topics. However, in practice, caption data 
+seldom conform to such categorization, and collecting semi-structured 
+reports is not practical, so models capable of learning from natural re-
+ports are urgently needed. 
+3.Methodology 
+3.1. AGNet overview 
+The proposed AGNet model consists of an image model, which in-
+cludes a refine module consisting of the feature extraction network and 
+multi-label classification (MLC) network, a similarity-attention module, 
+and an embedding and labeling module, and a language model. Each 
+data pair used in this study includes an image and its description and 
+category label. The image of a data pair is first fed to the feature 
+extraction network, from which the extracted feature vector is obtained, 
+which is further used by the MLC network to predict the relevant tag. 
+The MLC network aims to use the category labels for supervised 
+learning; it reverses the gradient from the feature extraction network so 
+that it can guide the network and thereby correct the learning from 
+feature extraction. 
+Once a feature has been correctly extracted, the refine module pro-
+cesses it and outputs the refined feature, which fits the caption data 
+better in terms of dimension. In the embedding and labeling module, the 
+image description text first undergoes the one-hot encoding based on the 
+dictionary built from the dataset; then, the obtained data are fed to the 
+embedding and labeling module to generate the embedded matrix with 
+label information. Next, the similarity-attention module treats the 
+embedded matrix and the refined feature as the query object and the 
+key-value object, respectively, and calculates the similarity between 
+them to obtain the attention value of the image feature. The similarity- 
+attention module output and the word-embedding matrix are then fed to 
+the language model via the LSTM [24], which underlies the generation 
+of words in the next time step. Termination of the presented process is 
+controlled by the language model. The terminator output of the LSTM 
+completes the task of generating a diagnostic report. The illustration of 
+the described process is shown in Fig. 2. 3.2. Image model 
+The image model, which is the first model in the AGNet model, has 
+two primary functions: to extract meaningful feature maps for further 
+processing by the similarity-attention module and to predict a reliable 
+disease category label, which is used as an input of the embedding and 
+labeling module. To perform both functions in a single pass, the image 
+model incorporates a feature extraction network followed by an MLC 
+network. It should be noted that the image model is pre-trained sepa-
+rately using known disease category labels. More specifically, for a given 
+image I, first, its feature ⊔vk⊓K
+k1∃RN×M is extracted by the feature 
+extraction network, and then ⊔vk⊓K
+k1 is fed to the MLC network, thereby 
+generating a distribution over all of L tags as follows: 
+plCpred 
+li1⃦⃦⊔vk⊓K
+k1)
+∝exp 
+MLC i 
+⊔vk⊓K
+k1))
+C (1)  
+where plCpred denotes the tags distribution of prediction; l∃RL is a tag 
+vector, and it signifies the presence (or absence) of the i-th tag and 
+corresponds to the MLC network ’s ith output. 
+The AGNet employs GoogLeNet Inception v3 [42] as its image 
+model. GoogLeNet has a modular structure (inception), and the first 
+version of the inception module is shown in Fig. 3. GoogLeNet is heaped 
+up by several inception modules, of which Inception v3 is of the third 
+generation. The Inception v3 module enables two types of improve -
+ments, decomposing a large filter into an asymmetric structure and 
+solving the problem of information loss by using a parallel structure. 
+These improvements significantly reduce the number of required cal-
+culations, which accounts (in part) for the superior performance of the 
+Inception v3 module. To simplify the process, the proposed model ex-
+tracts visual features in the final convolutional layer of the Inception v3 
+model and uses its last two fully-connected layers for the MLC network. 
+Finally, the extracted feature and the label vector are used to generate 
+text in the subsequent network layers. 
+Fig. 2.Schematic illustration of the AGNet model. The green lines are shared by the training and testing process. The blue and green lines with arrows represent the 
+data flow in the testing process; meanwhile, the red and green lines with arrows represent the data flow in the training process. (For interpretation of the references to 
+color in this figure legend, the reader is referred to the Web version of this article.) 
+Fig. 3.Overview of the inception module.  F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+43.3. Refine module 
+The refine module connects the image model and the similarity- 
+attention module. The function of this module is to preprocess the 
+feature map extracted by the front network so that the next module can 
+better calculate the mapping relationship between the text and image 
+feature, which will now be of the same dimension. 
+First, the reshape operation is performed to reduce the high- 
+dimensional feature ⊔vk⊓K
+k1∃RN×M that is output by the feature 
+extraction network to the low-dimensional feature ⊔vp⊓P
+p1∃RM, as 
+follows: 
+}
+vp〈P
+p1Reshape 
+⊔vk⊓K
+k1)
+B (2) 
+Next, since the reshape operation can obscure part of the feature 
+map ’s useful information, a dense layer is added after the reshape layer 
+to adjust the feature map. The sigmoid activation function is used as an 
+activation function of the dense layer, and it can be expressed as follows: 
+}vpsigmoid 
+vp⋅W)
+CW∃RM×NC (3)  
+where W denotes the weight matrix of the dense layer, as shown in 
+Fig. 4. 
+3.4. Embedding and labeling module 
+The image model can achieve a comparatively high classification accuracy, as shown in Table 1. After the image model, the data are 
+processed by the embedding and labeling module, which performs two 
+operations on the one-hot encoding matrix obtained from the output 
+caption. 
+The first operation is embedding, which compresses the large- 
+dimensional data encoded by the one-hot techniques into a lower- 
+dimensional space. Assume ⊔x0Cx1C…Cxt⊓denotes the input sentence, 
+where xi is the ith word in a sentence. Then, the embedding operation 
+can be formulated as follows: 
+Exiwe⋅xiC (4)  
+where we denotes the embedding matrix weight. 
+The second operation is labeling, which adds the image label infor-
+mation to the embedded sentence matrix. The final image label can be 
+obtained by the MLC network as follows: 
+WxiAdd 
+ExiCplCpred)
+C (5)  
+where plCpred denotes the prediction tags distribution. 
+3.5. Similarity-attention module 
+In view of the mission specificity of this study, the similarity- 
+attention module incorporates a similarity-attention mechanism based 
+on the scaled dot-product attention, which represents a fundamental 
+structure of the self-attention mechanism [13], as shown in Fig. 5. 
+The similarity-attention module relies on three inputs, namely, query 
+(Q), key (K), and value (V), where Q represents the query matrix and K 
+and V form a key-value pair. In models that use the so-called soft- 
+attention mechanism, it is difficult to learn the relationships between 
+objects correctly in the model training process; hence, such models 
+cannot learn the exact correspondence between image feature and 
+caption information. In contrast, the similarity-attention mechanism ’s 
+function is to play a guiding role that directs the focus to the underlying 
+relationship between the feature map and the caption text. In the pro-
+posed method, the embedded caption data, i.e., the embedding layer ’s 
+output, serve as an input to the Q matrix, while K and V are both applied 
+to the refined feature, i.e., the refine module ’s output). 
+The similarity-attention mechanism includes three steps. The first 
+step calculates the similarity value of Q and K, and this value indicates 
+the correspondence between the refined feature and each word in the 
+input sentence. The similarity value is proportional to the correspon -
+dence between the region of interest and the focal word in the caption 
+text. The similarity matrix between the input sentence and refined 
+feature is defined as follows: 
+Fig. 4.Overview of the refine module.  
+Table 1 
+Classification accuracies of the three models.  
+Model Validation Test 
+VGG-19 62.87 58.33 
+SqueezeNet 68.32 66.11 
+GoogLeNet 83.00 81.86  
+Fig. 5.Similarity-attention process (left) and scaled dot-product attention 
+process (right). F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+5fsim 
+qiCkj)
+qikj⎪⎪⎪⎪⎪
+dk♠C (6)  
+where dk denotes the dimension of K and Q, qi∃Q is ith query, and kj∃
+K denotes the jth vj∃V key-value pair. Thus, Eq. (6) defines a function 
+that can be used to calculate similarity scores. 
+The second step calculates the attention value based on the similarity 
+matrix, as given by Eq. (7). The attention value is set as a soft-max 
+distribution of the similarity value. In the third step, the attention 
+value is multiplied by V to obtain the image feature with the attention 
+region, as given by Eq. (8). 
+fattn 
+qiCkj)
+efsimqiCkj
+̂
+jefsimqiCkj (7)  
+}vi̂
+jfattn 
+qiCkj)
+vj (8) 
+In Eq. (8), }vi denotes the image feature vector with attention value. 
+Similar to the soft-attention model, the attention value of each word in 
+the caption data must be calculated before the data is fed to the LSTM. 
+The adopted approach is to feed the embedded matrix of the entire 
+caption to the attention-similarity module for a one-pass calculation; 
+thus, the attention information is obtained based on the whole input 
+caption, after which the language model can generate words applicable 
+to the overall situation. Similarly, each image feature is fed to the LSTM, 
+which is used to calculate the hidden (initial) state. In this way, the best 
+model is identified by parallel computations. 
+3.6. Language model 
+As mentioned previously, the LSTM represents a skeleton of the 
+language model. Unlike how the attention module is connected with a 
+soft-attention mechanism [7], in the language model, the input sen-
+tence, which is used by the similarity-attention module when calculating 
+the LSTM ’s initial states, skips the computation of attention and is 
+instead fed directly to the LSTM input layer after the embedding and 
+labeling module, as shown in Fig. 6. In this way, LSTM ’s proximity to the 
+raw data can help the LSTM ’s language understanding achieve its full 
+potential. Thus, LSTM yields an exact model of the diagnostic reports by 
+maximizing the joint probability over sentences, as follows: 
+log​p⌊
+x0Bt†θL̂t
+i1logpxi†x0Bi 1CθL⌋
+C (9)  
+where θL denotes the LSTM ’s internal model parameters, and ⊔x0Cx1C… 
+Cxt⊓represents the input sentence obtained by the embedding and labeling module. The LSTM ’s initial parameters h0 and c0 are calculated 
+by Eqs. (11) and (12), respectively, where I denotes the input image. 
+}v1
+I⋅̂
+i}vi (10)  
+h0wh⋅}v (11)  
+c0wc⋅}v (12) 
+In Eqs. (10) –(12), wh and wc denote the weight matrices of the dense 
+layer, which lies between the similarity-attention module and the lan-
+guage model; }v denotes the similarity-attention module ’s output. 
+In this process, the LSTM uses the output of word xi 1 from the 
+previous time step and the internal states hi 1 and ci 1 generated by the 
+preceding LSTM to predict the possible word xi in the next time step, 
+which can be expressed as follows: 
+hiLSTMExi 1Chi 1Cci 1C (13)  
+pxi†x0Bi 1CθL∝exphiB (14) 
+Finally, the probability distribution over the dictionary of output 
+words is obtained, and this distribution reflects the dataset and is 
+calculated for the entire network. 
+3.7. Model learning 
+Assume ⊔IClcCx0BiCxi1⊓denote a training data pair, where I is the 
+input image, lc is the corresponding image label, x0Bn is the whole sen-
+tence that describes the image I, and x0Bi∃x0Bn 1 denotes the top i words 
+for a random integer i less than (n 1; xi1 denotes the (i1)th word of 
+the sentence, and it is used to label the language model ’s output. Then, 
+the regularized distribution vectors of the image label and the (i1)th 
+word can be respectively defined as follows: 
+plcCtruelc\
+lc1C (15)  
+pxi1Ctruexi1\
+xi11B (16) 
+After the training pair is fed to the proposed model, the predicted 
+distribution over all of image labels plcCpred is obtained by the MLC 
+network, and the predicted distribution of the output words pxiCpred is 
+obtained by the LSTM. Then, the image model ’s loss function can be 
+formulated as follows: 
+LFi 
+plcCpredCplcCtrueCICθi)
+ ̂
+plcCtruelog 
+plcCpred)
+C (17)  
+where LFi denotes the loss in the image model, and θi denotes that 
+model ’s parameters. 
+For the rest of the AGNet, the loss function is obtained from the 
+outputs of the refine module, similarity-attention module, embedding 
+and labeling module, and language model, as follows: 
+LFr 
+pxi1CpredCpxi1CtrueCICx0BiCθr)
+ ̂
+pxi1Ctruelog 
+pxi1Cpred)
+C (18)  
+where θr indicates the model parameters of the modules. 
+Overall, the objective of model training is to minimize the ensemble 
+loss, which can be expressed as: 
+min⊔LFIClcCx0BiCxi1⊓LFiLFrB (19) 
+The model training process is divided into two training stages: 
+training of the image model and training of the rest of the model. In the 
+second stage, the image model parameters, which are pre-trained in the 
+first stage, are used, and their values are fixed. At each of the two stages, 
+the gradient descent Algorithm is used to update parameters, and 
+Adam ’s algorithm [43] is used as an optimizer. The updating process is 
+given in Algorithm 1, in which we use βt
+1 and βt
+2 to denote β1 and β2 to 
+the power t. 
+Fig. 6.The connection between the similarity-attention module and the lan-
+guage model. F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+6Table 2 
+SPI dataset statistics.  
+Disease type Number of samples 
+Poroma 24 
+Syringoma 43 
+Eczematoid carcinoma 45 
+Lupus miliaris disseminatus faciei 51 
+Neurofibroma 54 
+Pyogenic granuloma 59 
+Dermatofibroma 113 
+Granuloma annulare 126 
+Lichen planus 134 
+Basal cell carcinoma 224 
+Amyloidosis 274  
+Fig. 7.Examples of training data from the SPI dataset.  F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+7Algorithm 1.
+3.8. Model inference 
+Unlike the model training, for model inference, the initial data pair is 
+⊔ICx0⊓, where x0 is the {START} signal, which is treated as a word to be 
+added to the sentence. The Algorithm ’s cyclic structure is designed such 
+that, at each time step, the input data pair is added to the output word of 
+the previous time step. After the one-hot decoding, if the LSTM ’s output 
+value is a {STOP} signal, then the cycle is terminated. 
+4.Experimental results 
+4.1. Data collection and preprocessing 
+For model training and evaluation, a new skin pathological image 
+(SPI) dataset consisting of 1147 pieces of data was constructed. Each 
+data sample included an image of skin pathology, the disease name, and 
+the corresponding diagnosis report. The data were collected by a 
+multitude of dermatologists during their one-decade diagnosis practice. 
+The data were all subjected to the second-validity check to ensure ac-
+curacy. The dataset statistics are given in Table 2, where 11 disease 
+types are given, including Lichen planus, Syringoma, Poroma, Pyogenic 
+granuloma, Granuloma annulare, Basal cell carcinoma, Amyloidosis, 
+Dermatofibroma, Neurofibroma, Eczematoid carcinoma, and Lupus 
+miliaris disseminatus faciei. In this work, the disease name was 
+considered a pathological image ’s label, and the diagnosis report was 
+considered a caption. All non-alphabetic tokens and participles were 
+removed by preprocessing the caption data. Considering a rigid format of the caption data and the correlations between individual words, an 
+expression dictionary was constructed on the basis of segmented caption 
+data. The coding length of the caption data and the number of param -
+eters were reduced, and this process eventually yielded the normalized 
+caption data suitable for model training. Each caption contained 25 
+segmented words on average, and the dictionary contained a total of 595 
+words. The data were randomly divided into training, validation, and 
+test sets accounting for 70%, 15%, and 15% of the overall data, 
+respectively. 
+4.2. Model implementation 
+The model training process was divided into two steps, and the ex-
+amples of the training data are shown in Fig. 7. The first step was to 
+pretrain the image model on the SPI dataset using images and the cor-
+responding image label information. Several CNN-based image classifi -
+cation models were compared, including the VGG-19 [44], SqueezeNet 
+[45], and GoogLeNet (Inception v3) [42], to evaluate the quality and 
+reliability of learned image features. 
+Among all the tested classifiers, GoogLeNet exhibited the highest 
+accuracy on the dataset, as shown in Table 1; therefore, the integrated 
+GoogLeNet was selected as an image model. Next, the weight parameters 
+of the image model ’s hidden layer were extracted to obtain the correct 
+image features, whose relevance was guaranteed by high classification 
+accuracy. Next, the pretraining parameters of the trained image model 
+were optimized. 
+The second training step was to train the LSTM, similarity-attention 
+module, and modules that followed the image model simultaneously. In 
+this step, the weight parameters of the image model were also fixed. In 
+the text generation task, the number of hidden states and embedded 
+dimensions was set to 512. 
+During the caption data processing, the sentences were appended by 
+adding {START} at the head of the caption and {STOP} at the tail of the 
+caption. After that, one-hot coding was performed in accordance with 
+the expression dictionary obtained from the SPI dataset. In both model 
+training steps, the multi-classification cross-entropy loss function and 
+the Adam optimizer [43] were used, adopting the learning rates of dy-
+namic attenuation of 0.01 and 0.001, respectively. The learning rate’s 
+update process was as follows: 
+LR←LR⋅ηεC (20)  
+where LR stands for the learning rate, η denotes the decay rate, and ε is 
+the control signal for the training step. 
+Each training batch contained 36 images and their corresponding 
+caption data. During the training process, the best model-saving strategy 
+was determined based on the loss function value calculated using the 
+verification data. To prevent overfitting, the process invoked the early- 
+stop operation; namely, when the validation data ’s accuracy exceeded 
+five epochs, the model automatically stopped the training process. 
+4.3. Baselines 
+The AGNet was compared with two image caption models, the CNN- 
+RNN model [46], and the soft-attention model [7], while using the 
+pre-trained Inception v3 as a CNN backbone, and three newer image 
+caption models, A2I2 [47], BUTD [12], and AdaAtt [9]. To evaluate the 
+advantages of the proposed similarity-attention module, a no-similarity 
+model was implemented by removing the similarity calculation from the 
+attention module while retaining the two following dense layers in that 
+module. Similarly, the labeling operation ’s effect on the model text 
+generation was analyzed by implementing a no-labeling model with the 
+original AGNet; in this model, the embedding and labeling module was 
+reduced to the embedding operation only. F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+84.4. Quantitative results 
+The proposed model performance was evaluated in terms of several 
+standard caption evaluation measures, including BLEU1 –BLEU4 [48], 
+METEOR [49], and ROUGE [50]. Due to the imbalance between 
+different data categories in the SPI dataset, neither the AGNet model nor 
+baseline models achieved significantly better performances than the 
+other models on data categories including large data samples. However, 
+the models ’ scores differed significantly on data categories with small 
+samples. Therefore, the dataset was divided into four segments: (i) the 
+complete dataset; (ii) a large dataset, which included categories with 
+large samples; (iii) a medium dataset, which included categories with 
+medium samples; and (iv) a small dataset, which included categories 
+with small samples. As shown in Table 3, the AGNet model performed 
+better than the baseline models on the complete SPI dataset in terms of 
+generating captions. 
+For the CNN-RNN model, which did not apply an attention mecha -
+nism when processing the image or generating a caption, the perfor -
+mance was understandably worse than those of the models that included 
+the attention mechanism. The effectiveness of AGNet ’s internal modules 
+was verified by experiments. As shown in Table 3, and as expected, 
+canceling either the labeling module or the similarity-calculation mod-
+ule from the proposed model reduced the proposed model ’s perfor -
+mance compared with its complete version. These results indicate that 
+the embedding and labeling module and the similarity-attention module help the LSTM understand the caption data better. Moreover, as shown 
+in Table 4, the AGNet model outperformed the other models on datasets 
+of various sizes, indicating good robustness of the proposed model. 
+In addition to evaluating the proposed model on a testing set, the 
+variation in the loss function value during the model training process 
+was also analyzed. The result showed that the soft-attention model had 
+difficulty in identifying the correct gradient descent, and the LSTM 
+performed poorly in learning from caption data. Thus, this model re-
+quires more training epochs to achieve convergence. In addition, the 
+results of several hyper-parameter fine-tuning tests showed that the soft- 
+attention model could seldom accelerate model fitting by modifying the 
+learning rate. To isolate the effect of inferences due to Adam ’s optimizer, 
+the soft-attention model ’s results were compared for the RMSProp 
+optimizer [51] and Adam ’s optimizer. In the latter case, it still took more 
+than 200 epochs to achieve convergence. The suboptimal baseline re-
+sults indicated that the AGNet with fewer operations could feed the 
+caption data directly to the LSTM and then separate the attention 
+module from that data ’s and the LSTM ’s input layers. Therefore, when 
+constructing the initial caption data, the LSTM ability to fit caption data 
+to images can be maximized. 
+Based on the results presented in Fig. 8, the proposed model 
+converged within 100 epochs, which made model training more effi-
+cient. Because the CNN-RNN model performed poorly, as shown in 
+Table 3, its training process was not considered. Table 3 
+Accuracy scores of different models on the SPI dataset.  
+Model Dataset Labeling Similarity B1 B2 B3 B4 M R 
+A2I2 Full-SPI   10.40 4.80 2.60 1.80 9.70 16.70 
+BUTD Full-SPI   10.50 5.00 2.70 1.90 10.20 17.30 
+AdaAtt Full-SPI   10.40 5.00 2.80 1.90 10.30 17.20 
+CNN-RNN Full-SPI   48.88 40.67 37.79 37.23 49.37 48.67 
+SAT Full-SPI   74.27 70.47 68.65 67.54 76.88 76.76 
+AGNet Full-SPI ✓  74.37 70.84 69.28 68.37 76.45 77.31 
+AGNet Full-SPI  ✓ 74.41 70.96 69.47 68.65 76.34 77.12 
+AGNet Full-SPI ✓ ✓ 75.75 72.02 70.32 69.34 77.52 78.14 
+Note: B1–B4 BLEU1 –BLEU4; M METEOR; R ROUGE; SAT soft attention model. Highest values are denoted in bold italic . 
+Table 4 
+Accuracy scores of different models on the three datasets.  
+Model Sample size B1 B2 B3 B4 M R 
+Small Medium Large 
+CNN-RNN ✓   22.13 7.25 1.21 – 19.47 20.50 
+SAT ✓   43.34 33.33 29.17 28.09 45.74 45.80 
+AGNet ✓   45.35 35.91 32.38 30.71 47.30 46.21 
+CNN-RNN  ✓  17.05 4.63 – – 13.02 15.50 
+SAT  ✓  75.61 71.83 70.62 70.01 76.52 77.62 
+AGNet  ✓  76.27 71.91 69.70 68.45 78.37 77.26 
+CNN-RNN   ✓ 85.08 83.36 82.51 81.85 87.92 87.85 
+SAT   ✓ 80.38 77.93 76.53 75.48 84.85 83.27 
+AGNet   ✓ 87.44 85.99 85.20 84.55 90.17 90.16 
+Note: B1–B4 BLEU1 –BLEU4; M METEOR; R ROUGE; SAT soft attention model. Highest values are denoted in bold italic. 
+Fig. 8.Training losses of the soft-attention model and the proposed AGNet model.  F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+94.5. Qualitative results 
+4.5.1. Paragraph generation 
+In Fig. 9, the image caption results obtained by the AGNet model, the 
+AGNet model without similarity, and the soft-attention model are pre-
+sented. It should be noted that the caption data of the SPI dataset were 
+fairly uncomplicated. Due to the similarity between features extracted 
+from images of the same category, there was a certain repetition level in the corresponding caption data. The comparison with the ground truth 
+data indicated that the caption data consisted mainly of technical vo-
+cabulary and had a rigid format. Once the expressions had been 
+segmented, the sentence structure of the caption data was “something 
+plus a corresponding adjectival description. ” The expression segmenting 
+process regarded many word pairs as a single descriptor, while a tumor 
+cell was considered an expression. This mechanism reduced the number 
+of parameters in the embedded matrix of the caption data, which 
+Fig. 9.Results obtained by three different models.  F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+10significantly improved the model performance. 
+4.5.2. Attention learning 
+The effect of the visual attention module is shown in Fig. 10, where 
+red and blue colors correspond to the focus area and the cold point, 
+respectively. Guided by the word generation at each step of the language 
+model, the similarity-attention module output an attention region based 
+on image features. For images in the same category, the attention 
+module recognized similar image features and guided the LSTM toward 
+generating an appropriate word. More specifically, the module gener -
+ated a one-to-one matching between the attention areas obtained by 
+visualization and the words generated by the LSTM. The similarity- 
+attention module was then oriented toward the correct feature area 
+using gradient descent to minimize the LSTM output loss. The visualized 
+output results of the similarity-attention module were examined by 
+experienced radiologists and received the feedback that they had been 
+identical regarding the diagnostic criteria, such as relevant tissue, mass, 
+and radiologic features. 
+5.Conclusion 
+This paper studies the automatic generation of diagnosis reports 
+from skin pathology images. Considering three principal challenges 
+when generating diagnostical reports, namely ensuring report accuracy 
+and fast report generation and visualizing the basis for generated di-
+agnoses, the AGNet model is constructed. The AGNet model combines 
+deep learning and attention mechanism. In particular, the self-attention 
+mechanism is used in the proposed model, which is a milestone in the 
+field of natural language processing, and a similarity-attention mecha -
+nism is designed to locate the correct image attention area in the process 
+of text generation. For that purpose, a special mode is used for con-
+necting the attention module. Since the proposed CNN-based model is an 
+extremely accurate classifier of images in the pretraining process, the 
+output label of the image model can be fully used; therefore, an 
+embedding and labeling module is introduced. The proposed model is 
+verified on the skin pathological image data, and the obtained results 
+have verified both the effectiveness and the robustness of the proposed 
+model. For future work, we will construct another skin pathological 
+image dataset with larger scale, to further validate the effectiveness of 
+our Algorithm and refine it. We also attempt to generalize this deep learning framework to other similar medical imaging diagnostic report 
+generation applications. 
+Declaration of competing interest 
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper. 
+Acknowledgments 
+This work was supported in part by the National Nature Science and 
+Foundation of China under Grant No. 71801031, the Guangdong Basic 
+and Applied Basic Research Foundation of China project “Research on 
+dermatosis automatic diagnosis system based on multi-type of medical 
+image ” under Grant No. 2019A1515011962, and the Science and 
+Technology Innovation Strategy Foundation of Guangdong Province 
+under Grant No. pdjh2020b0013. We thank LetPub (www.letpub.com ) 
+for its linguistic assistance during the preparation of this manuscript. 
+References 
+[1]N. Wu, et al., Deep neural networks improve radiologists ’ performance in breast 
+cancer screening, IEEE Trans. Med. Imag. 39 (4) (2020) 1184 –1194 . 
+[2]S. Feng, et al., CPFNet: context pyramid fusion network for medical image 
+segmentation, IEEE Trans. Med. Imag. (2020) 1, 1. 
+[3]M. Corbetta, G.L. Shulman, Control of goal-directed and stimulus-driven attention 
+in the brain, Nat. Rev. Neurosci. 3 (3) (2002) 201–215. 
+[4]R.A. Rensink, The dynamic representation of scenes, Vis. Cognit. 7 (1–3) (2000) 
+17–42. 
+[5]G.N. Gunesli, C. Sokmensuer, C. Gunduz-Demir, Attention Boost: learning what to 
+attend for gland segmentation in histopathological images by boosting fully 
+convolutional networks, IEEE Trans. Med. Imag. (2020) 1, 1. 
+[6]M. Li, et al., SACNN: self-attention convolutional neural network for low-dose CT 
+denoising with self-supervised perceptual loss network, IEEE Trans. Med. Imag. 39 
+(7) (2020) 2289 –2301 . 
+[7]K. Xu, et al., Show, attend and tell: neural image caption generation with visual 
+attention, in: International Conference on Machine Learning, 2015 . 
+[8]L. Chen, et al., Sca-cnn: spatial and channel-wise attention in convolutional 
+networks for image captioning, in: Proceedings of the IEEE Conference on 
+Computer Vision and Pattern Recognition, 2017 . 
+[9]J. Lu, et al., Knowing when to look: adaptive attention via a visual sentinel for 
+image captioning, in: Proceedings of the IEEE Conference on Computer Vision and 
+Pattern Recognition, 2017 . 
+Fig. 10.Visual attention results.  F. Wu et al.                                                                                                                                                                                                                                      
+Computers in Biology and Medicine 141 (2022) 105037
+11[10] Z. Yang, et al., Stacked attention networks for image question answering, in: 
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+2016 . 
+[11] D. Yu, et al., Multi-level attention networks for visual question answering, in: 
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+2017 . 
+[12] P. Anderson, et al., Bottom-up and top-down attention for image captioning and 
+visual question answering, in: Proceedings of the IEEE Conference on Computer 
+Vision and Pattern Recognition, 2018 . 
+[13] A. Vaswani, et al., Attention is all you need, in: Advances in Neural Information 
+Processing Systems, 2017 . 
+[14] H. Hu, et al., Relation networks for object detection, in: Proceedings of the IEEE 
+Conference on Computer Vision and Pattern Recognition, 2018 . 
+[15] L. Huang, et al., Attention on attention for image captioning, in: Proceedings of the 
+IEEE International Conference on Computer Vision, 2019 . 
+[16] X. Wang, et al., Non-local neural networks, in: Proceedings of the IEEE Conference 
+on Computer Vision and Pattern Recognition, 2018 . 
+[17] H.-C. Shin, et al., Learning to read chest x-rays: recurrent neural cascade model for 
+automated image annotation, in: Proceedings of the IEEE Conference on Computer 
+Vision and Pattern Recognition, 2016 . 
+[18] B. Jing, P. Xie, E. Xing, On the automatic generation of medical imaging reports, 
+2017 arXiv preprint arXiv:1711.08195 . 
+[19] L. Kaiser, et al., One model to learn them all, 2017 arXiv preprint arXiv: 
+1706.05137 . 
+[20] J. Tian, et al., A diagnostic report generator from CT volumes on liver tumor with 
+semi-supervised attention mechanism, in: International Conference on Medical 
+Image Computing and Computer-Assisted Intervention, Springer, 2018 . 
+[21] A.K. Vijayakumar, et al., Diverse beam search: decoding diverse solutions from 
+neural sequence models, 2016 arXiv preprint arXiv:1610.02424 . 
+[22] R.R. Selvaraju, et al., Grad-CAM: why did you say that?, 2016 arXiv preprint arXiv: 
+1611.07450 . 
+[23] Y. Xue, et al., Multimodal recurrent model with attention for automated radiology 
+report generation, in: International Conference on Medical Image Computing and 
+Computer-Assisted Intervention, Springer, 2018 . 
+[24] S. Hochreiter, J. Schmidhuber, Long short-term memory, Neural Comput. 9 (8) 
+(1997) 1735 –1780 . 
+[25] X. Yang, et al., Auto-encoding scene graphs for image captioning, in: Proceedings 
+of the IEEE Conference on Computer Vision and Pattern Recognition, 2019 . 
+[26] T. Yao, et al., Boosting image captioning with attributes, in: Proceedings of the 
+IEEE International Conference on Computer Vision, 2017 . 
+[27] T. Yao, et al., Exploring visual relationship for image captioning, in: Proceedings of 
+the European Conference on Computer Vision, ECCV), 2018 . 
+[28] M. Yang, et al., Multitask learning for cross-domain image captioning, IEEE Trans. 
+Multimed. 21 (4) (2019) 1047 –1061 . 
+[29] T. Wang, et al., Visual commonsense r-cnn, in: Proceedings of the IEEE/CVF 
+Conference on Computer Vision and Pattern Recognition, 2020 . 
+[30] Y.J. Tian, S.J. Fu, A descriptive framework for the field of deep learning 
+applications in medical images, Knowl. Base Syst. 210 (2020) 22. [31] Y.D. Chai, H.Y. Liu, J. Xu, Glaucoma diagnosis based on both hidden features and 
+domain knowledge through deep learning models, Knowl. Base Syst. 161 (2018) 
+147–156. 
+[32] G. Nir, et al., Automatic grading of prostate cancer in digitized histopathology 
+images: learning from multiple experts, Med. Image Anal. 50 (2018) 167–180. 
+[33] C. Spampinato, et al., Deep learning for automated skeletal bone age assessment in 
+X-ray images, Med. Image Anal. 36 (2017) 41–51. 
+[34] Z. Swiderska-Chadaj, et al., Learning to detect lymphocytes in 
+immunohistochemistry with deep learning, Med. Image Anal. 58 (2019) 101547 . 
+[35] E. Pesce, et al., Learning to detect chest radiographs containing pulmonary lesions 
+using visual attention networks, Med. Image Anal. 53 (2019) 26–38. 
+[36] Z. Zhang, et al., Mdnet: a semantically and visually interpretable medical image 
+diagnosis network, in: Proceedings of the IEEE Conference on Computer Vision and 
+Pattern Recognition, 2017 . 
+[37] J. Pavlopoulos, V. Kougia, I. Androutsopoulos, A survey on biomedical image 
+captioning, in: Proceedings of the Second Workshop on Shortcomings in Vision and 
+Language, 2019 . 
+[38] E. Rojas, et al., Process mining in healthcare: a literature review, J. Biomed. Inf. 61 
+(2016) 224–236. 
+[39] J.F. Chen, et al., A data-driven framework of typical treatment process extraction 
+and evaluation, J. Biomed. Inf. 83 (2018) 178–195. 
+[40] G. Leonardi, et al., Leveraging semantic labels for multi-level abstraction in 
+medical process mining and trace comparison, J. Biomed. Inf. 83 (2018) 10–24. 
+[41] P. Kisilev, et al., From medical image to automatic medical report generation, IBM 
+J. Res. Dev. 59 (2/3) (2015) . 
+[42] C. Szegedy, et al., Rethinking the inception architecture for computer vision, in: 
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+2016 . 
+[43] D.P. Kingma, J. Ba, Adam: a method for stochastic optimization, 2014 arXiv 
+preprint arXiv:1412.6980 . 
+[44] K. Simonyan, A. Zisserman, Very deep convolutional networks for large-scale 
+image recognition, 2014 arXiv preprint arXiv:1409.1556 . 
+[45] F.N. Iandola, et al., SqueezeNet: AlexNet-level accuracy with 50x fewer parameters 
+andD0.5 MB model size, 2016 arXiv preprint arXiv:1602.07360 . 
+[46] O. Vinyals, et al., Show and tell: a neural image caption generator, in: Proceedings 
+of the IEEE Conference on Computer Vision and Pattern Recognition, 2015 . 
+[47] S.J. Rennie, et al., Self-critical sequence training for image captioning, in: 
+Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 
+2017 . 
+[48] K. Papineni, et al., BLEU: a method for automatic evaluation of machine 
+translation, in: Proceedings of the 40th Annual Meeting of the Association for 
+Computational Linguistics, 2002 . 
+[49] M. Denkowski, A. Lavie, Meteor universal: language specific translation evaluation 
+for any target language, in: Proceedings of the Ninth Workshop on Statistical 
+Machine Translation, 2014 . 
+[50] C.-Y. Lin, Rouge: a package for automatic evaluation of summaries, in: Text 
+Summarization Branches Out, 2004 . 
+[51] T. Tieleman, G. Hinton, Lecture 6.5-rmsprop: divide the gradient by a running 
+average of its recent magnitude, COURSERA: Neural Netw. Mach. Learn. 4 (2) 
+(2012) 26–31. F. Wu et al.                                                                                                                                                                                                                                      
