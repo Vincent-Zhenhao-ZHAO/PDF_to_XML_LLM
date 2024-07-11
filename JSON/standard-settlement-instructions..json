@@ -1,0 +1,404 @@
+[
+  {
+    "data": {
+      "ocr": "http://localhost:8080/standard-settlement-instructions.png"
+    },
+    "predictions": [
+      {
+        "result": [
+          {
+            "id": "2a90bf5b-3",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 6.2745098039215685,
+              "y": 6.212121212121212,
+              "width": 15.72549019607843,
+              "height": 3.242424242424242,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "2a90bf5b-3",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "> Hssc"
+              ],
+              "x": 6.2745098039215685,
+              "y": 6.212121212121212,
+              "width": 15.72549019607843,
+              "height": 3.242424242424242,
+              "rotation": 0
+            },
+            "score": 0.072
+          },
+          {
+            "id": "2b8c2bbc-4",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 5.921568627450981,
+              "y": 13.242424242424242,
+              "width": 79.72549019607843,
+              "height": 30.939393939393938,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "2b8c2bbc-4",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Dear Sir / Madam,  We hereby confirm Standard Settlement Instructions of HSBC GIFT CITY Branch (Swift code:  HSBCINAA) as below  Account Name Currency | Account Number | Account with Bank Correspondent Bank Details  The Hongkong and Shanghai | USD 741-184279-201 The Hongkong and Shanghai HSBC Bank USA NA, NewYork.  Banking Corporation Banking Corporation Limited, SWIFT: MRMDUS33  Lunited, India IFSC Branch Hongkong A/c no: 000-04441-5  SWIFT: HSBCINAA SWIFT: HSBCHKHHHKH CHIPS UID: 075995  Fedwire Number : 021001088  ABA Number: 0108  The Hongkong and Shanghai | GBP 741-184279-202 The Hongkong and Shanghai HSBC Bank PLC, London  Banking Corporation Banking Corporation Limited, SWIFT: MIDLGB2?  Limited, India IFSC Branch] Hongkong A/e no: 35168943  SWIFT: HSBCINAA SWIFT: HSBCHKHHHKH IBAN: GB56 MIDL 4005 1535  1689 43  The Hongkong and Shanghai | EUR 741-184279-220 The Hongkong and Shanghai HSBC France, Paris  Banking Corporation Banking Corporation Limited, SWIFT: CCFRFRPP  Limited, India IFSC Branch Hongkong IBAN:  SWIFT: HSBCINAA SWIFT: HSBCHKHHHKH FR7630056000100010000405731  The Hongkong and Shanghai | SGD 741-414288-216 The Hongkong and Shanghai The Hongkong and Shanghai"
+              ],
+              "x": 5.921568627450981,
+              "y": 13.242424242424242,
+              "width": 79.72549019607843,
+              "height": 30.939393939393938,
+              "rotation": 0
+            },
+            "score": 0.8210106382978714
+          },
+          {
+            "id": "0ee02026-5",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 9.96078431372549,
+              "y": 44.42424242424242,
+              "width": 15.568627450980392,
+              "height": 3.212121212121212,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "0ee02026-5",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Banking Corporation  Limited, India IFSC Branch  SWIFT: HSBCINAA"
+              ],
+              "x": 9.96078431372549,
+              "y": 44.42424242424242,
+              "width": 15.568627450980392,
+              "height": 3.212121212121212,
+              "rotation": 0
+            },
+            "score": 0.5792307692307692
+          },
+          {
+            "id": "4d6ab2e7-f",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 46.627450980392155,
+              "y": 44.42424242424242,
+              "width": 16.745098039215687,
+              "height": 1.0,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "4d6ab2e7-f",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Banking Corporation Limited,"
+              ],
+              "x": 46.627450980392155,
+              "y": 44.42424242424242,
+              "width": 16.745098039215687,
+              "height": 1.0,
+              "rotation": 0
+            },
+            "score": 0.4716666666666667
+          },
+          {
+            "id": "0150dabb-c",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 46.627450980392155,
+              "y": 45.63636363636363,
+              "width": 15.333333333333334,
+              "height": 2.0,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "0150dabb-c",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Hongkong  SWIFT: HSBCHKHHHKH"
+              ],
+              "x": 46.627450980392155,
+              "y": 45.63636363636363,
+              "width": 15.333333333333334,
+              "height": 2.0,
+              "rotation": 0
+            },
+            "score": 0.39285714285714285
+          },
+          {
+            "id": "80244990-6",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 66.70588235294117,
+              "y": 44.39393939393939,
+              "width": 16.745098039215687,
+              "height": 4.515151515151516,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "80244990-6",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Banking Corporation Limited,  Singapore   SWIFT: HSBCSGSG   A/e no: 141-311787-001"
+              ],
+              "x": 66.70588235294117,
+              "y": 44.39393939393939,
+              "width": 16.745098039215687,
+              "height": 4.515151515151516,
+              "rotation": 0
+            },
+            "score": 0.4876470588235295
+          },
+          {
+            "id": "b0233c4e-b",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 8.0,
+              "y": 50.696969696969695,
+              "width": 23.725490196078432,
+              "height": 0.7272727272727273,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "b0233c4e-b",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Please use /PPRO/ and /OUR\u2019 in field 72"
+              ],
+              "x": 8.0,
+              "y": 50.696969696969695,
+              "width": 23.725490196078432,
+              "height": 0.7272727272727273,
+              "rotation": 0
+            },
+            "score": 0.6745454545454546
+          },
+          {
+            "id": "6d8b25d3-a",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 5.882352941176471,
+              "y": 54.39393939393939,
+              "width": 32.431372549019606,
+              "height": 1.393939393939394,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "6d8b25d3-a",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Always refer to our website for latest SSI"
+              ],
+              "x": 5.882352941176471,
+              "y": 54.39393939393939,
+              "width": 32.431372549019606,
+              "height": 1.393939393939394,
+              "rotation": 0
+            },
+            "score": 0.6945454545454545
+          },
+          {
+            "id": "a244317c-5",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 5.8431372549019605,
+              "y": 88.51515151515152,
+              "width": 45.80392156862745,
+              "height": 1.2424242424242424,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "a244317c-5",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "The Hongkong and Shanghai Banking Corporation Limited"
+              ],
+              "x": 5.8431372549019605,
+              "y": 88.51515151515152,
+              "width": 45.80392156862745,
+              "height": 1.2424242424242424,
+              "rotation": 0
+            },
+            "score": 0.667
+          },
+          {
+            "id": "4820b52a-2",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 5.921568627450981,
+              "y": 91.66666666666667,
+              "width": 23.92156862745098,
+              "height": 1.8484848484848484,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "4820b52a-2",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Gift City Branch, Unit No. 504 & 505, Sth floor, Si  Block 13-B, Zone | at GIFT SEZ, GIFT City, Gani"
+              ],
+              "x": 5.921568627450981,
+              "y": 91.66666666666667,
+              "width": 23.92156862745098,
+              "height": 1.8484848484848484,
+              "rotation": 0
+            },
+            "score": 0.7584000000000002
+          },
+          {
+            "id": "62982f7f-4",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 5.921568627450981,
+              "y": 93.42424242424242,
+              "width": 6.470588235294118,
+              "height": 0.9090909090909091,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "62982f7f-4",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Gujarat, India"
+              ],
+              "x": 5.921568627450981,
+              "y": 93.42424242424242,
+              "width": 6.470588235294118,
+              "height": 0.9090909090909091,
+              "rotation": 0
+            },
+            "score": 0.374
+          },
+          {
+            "id": "6c3564f3-0",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 31.098039215686274,
+              "y": 91.66666666666667,
+              "width": 7.803921568627451,
+              "height": 1.7878787878787878,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "6c3564f3-0",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "ature Building at  inagar \u2014 382355"
+              ],
+              "x": 31.098039215686274,
+              "y": 91.66666666666667,
+              "width": 7.803921568627451,
+              "height": 1.7878787878787878,
+              "rotation": 0
+            },
+            "score": 0.546
+          },
+          {
+            "id": "a381a15e-b",
+            "from_name": "bbox",
+            "to_name": "image",
+            "type": "rectangle",
+            "value": {
+              "x": 5.7254901960784315,
+              "y": 94.54545454545455,
+              "width": 28.980392156862745,
+              "height": 0.9090909090909091,
+              "rotation": 0
+            }
+          },
+          {
+            "id": "a381a15e-b",
+            "from_name": "transcription",
+            "to_name": "image",
+            "type": "textarea",
+            "value": {
+              "text": [
+                "Incorporated in Hong Kong SAR with limited liability"
+              ],
+              "x": 5.7254901960784315,
+              "y": 94.54545454545455,
+              "width": 28.980392156862745,
+              "height": 0.9090909090909091,
+              "rotation": 0
+            },
+            "score": 0.6936363636363636
+          }
+        ],
+        "score": 0.556349196046404
+      }
+    ]
+  }
+]
