@@ -1,0 +1,411 @@
+[
+    {
+        "element_id": "d419f5051ffa41d0eed7aac9e9dddc60",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        1382.5,
+                        125.1
+                    ],
+                    [
+                        1382.5,
+                        212.1
+                    ],
+                    [
+                        1600.4,
+                        212.1
+                    ],
+                    [
+                        1600.4,
+                        125.1
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.48223,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1
+        },
+        "text": "Foreign Exchange",
+        "type": "Header"
+    },
+    {
+        "element_id": "15a5cfc7ae0cf1aca51e6a32f373de4a",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        232.0,
+                        303.5
+                    ],
+                    [
+                        232.0,
+                        384.7
+                    ],
+                    [
+                        1297.5,
+                        384.7
+                    ],
+                    [
+                        1297.5,
+                        303.5
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.83485,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "d419f5051ffa41d0eed7aac9e9dddc60"
+        },
+        "text": "\u00b0 \u00b0 Standard settlement instructions",
+        "type": "Title"
+    },
+    {
+        "element_id": "191885c84b187054bd240c1272150c8f",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        229.1,
+                        419.8
+                    ],
+                    [
+                        229.1,
+                        452.5
+                    ],
+                    [
+                        1129.5,
+                        452.5
+                    ],
+                    [
+                        1129.5,
+                        419.8
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.79866,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "15a5cfc7ae0cf1aca51e6a32f373de4a"
+        },
+        "text": "All funds are for final beneficiary Wells Fargo Bank (WFBIUS6WFFX)",
+        "type": "NarrativeText"
+    },
+    {
+        "element_id": "b0182384cc04f3b35446077a094f536c",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        229.0,
+                        469.0
+                    ],
+                    [
+                        229.0,
+                        498.0
+                    ],
+                    [
+                        603.0,
+                        498.0
+                    ],
+                    [
+                        603.0,
+                        469.0
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "d419f5051ffa41d0eed7aac9e9dddc60"
+        },
+        "text": "Attention: Foreign Exchange",
+        "type": "Title"
+    },
+    {
+        "element_id": "5dfc8529d18e5d59499b0337f829c0b0",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        228.2,
+                        520.6
+                    ],
+                    [
+                        228.2,
+                        551.7
+                    ],
+                    [
+                        597.1,
+                        551.7
+                    ],
+                    [
+                        597.1,
+                        520.6
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.72408,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "d419f5051ffa41d0eed7aac9e9dddc60"
+        },
+        "text": "Effective as of March 15, 2021",
+        "type": "Title"
+    },
+    {
+        "element_id": "75bab8f9eef5da012fcb19c9e43ada18",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        226.5,
+                        582.4
+                    ],
+                    [
+                        226.5,
+                        1847.9
+                    ],
+                    [
+                        1557.5,
+                        1847.9
+                    ],
+                    [
+                        1557.5,
+                        582.4
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.90586,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "5dfc8529d18e5d59499b0337f829c0b0",
+            "text_as_html": "<table><thead><tr><th>AED</th><th>First Abu Dhabi Bank</th><th></th><th>AE580354022003182270014</th><th></th><th>NBADAEAA</th></tr></thead><tbody><tr><td>AUD</td><td>Australia and New Zealand Banking Group Limited</td><td>Melbourne</td><td>201087AUD00001</td><td></td><td>ANZBAU3MXXX</td></tr><tr><td>BHD</td><td>Arab Bank PLC</td><td>Manama</td><td>BHO5ARAB02002700610920</td><td></td><td>ARABBHBMMAN</td></tr><tr><td>CAD</td><td>Toronto Dominion Bank, The</td><td>Toronto</td><td>0360012149351</td><td>\u20acC000400732</td><td>TDOMCATTTOR</td></tr><tr><td>CHF</td><td>Credit Suisse</td><td>Zurich</td><td>CH0504835098650033000</td><td></td><td>CRESCHZZ80A</td></tr><tr><td>CNH</td><td>Bank of China</td><td>Hong Kong</td><td>01287560117612</td><td></td><td>BKCHHKHHXXX</td></tr><tr><td>CZK</td><td>Komercni Banka AS</td><td>Prague</td><td>\u20acZ3901000000000014460227</td><td></td><td>KOMBCZPPXXX</td></tr><tr><td>DKK</td><td>Nordea Bank Danmark A/S</td><td>Copenhagen</td><td>DkK9820005000400134</td><td></td><td>NDEADKKK</td></tr><tr><td>EUR</td><td>Deutsche Bank AG</td><td>Frankfurt</td><td>DE79500700100958748600</td><td></td><td>DEUTDEFF</td></tr><tr><td>GBP</td><td>National Westminster Bank PLC</td><td>London</td><td>GBO4NWBK60000404408233</td><td></td><td>NWBKGB2L</td></tr><tr><td>HKD</td><td>Hong Kong and Shanghai Bkg. Corp. Ltd.</td><td>Hong Kong</td><td>567874664001</td><td></td><td>HSBCHKHHHKH</td></tr><tr><td>HUF</td><td>UniCredit Bank Hungary Zrt.</td><td>Budapest</td><td>HU25109000040000000101900012</td><td></td><td>BACXHUHB</td></tr><tr><td></td><td>Bank Leumi Le Israel B.M.</td><td>Tel Aviv</td><td>1L870108000000022011743</td><td></td><td>LUMIILIT</td></tr><tr><td>JOD</td><td>Arab Bank PLC</td><td>Amman</td><td>JO69ARAB1000000000100099786900</td><td></td><td>ARABJOAXTRF</td></tr><tr><td>JPY</td><td>Sumitomo Mitsui Banking Corporation</td><td>Tokyo</td><td>4795</td><td></td><td>SMBCJPJT</td></tr><tr><td>KRW</td><td>Standard Chartered Bank</td><td>Seoul</td><td>195-10-011736</td><td></td><td>SCBLKRSE</td></tr><tr><td>KWD</td><td>National Bank of Kuwait</td><td>Kuwait</td><td>KW46NBOK0000000000001000122589</td><td></td><td>NBOKKWKW</td></tr><tr><td>MAD</td><td>Societe Generale Marocaine de Banques</td><td>Casablanca</td><td>0901849</td><td></td><td>SGMBMAMC</td></tr><tr><td>MXN</td><td>BBVA Bancomer</td><td>Mexico City</td><td>0095000451 CLABE: 012180001670307891</td><td></td><td>BCMRMXMMCOR</td></tr><tr><td>NOK</td><td>Nordea Bank Norge ASA</td><td>Oslo</td><td>N06360010241424</td><td></td><td>NDEANOKK</td></tr><tr><td>NZD</td><td>ANZ Bank New Zealand Limited</td><td>Wellington</td><td>201087/00001</td><td></td><td>ANZBNZ22058</td></tr><tr><td>PLN</td><td>Bank Pekao</td><td>Warsaw</td><td>PL23124000013149640111120301</td><td></td><td>PKOPPLPW</td></tr><tr><td>QAR</td><td>Standard Chartered Bank</td><td>Doha</td><td>QA27SCBL000000000009276435001</td><td></td><td>SCBLQAQX</td></tr><tr><td>RON</td><td>BRD-Groupe Societe Generale SA</td><td>Bucharest</td><td>RO9IBRDE427SV00471824270</td><td></td><td>BRDEROBU</td></tr><tr><td>RUB</td><td>Sberbank, Moscow</td><td>Moscow</td><td>30111810500000000807 INN 9909322001</td><td></td><td>SABRRUMMOI2 BIK 044525 A/C 3010181040000000022</td></tr><tr><td>SAR</td><td>Banque Saudi Fransi</td><td>Riyadh</td><td>A/C 00567800267 IBAN:SA5655000000000567800267</td><td></td><td>BSFRSARI</td></tr><tr><td>SEK</td><td>Skandinaviska Enskilda Banken</td><td>Stockholm</td><td>$E0250000000052018513532</td><td></td><td>ESSESESS</td></tr><tr><td>SGD</td><td>DBS Bank Limited</td><td>Singapore</td><td>0370035700</td><td></td><td>DBSSSGSG</td></tr><tr><td>THB</td><td>Kasikornbank PCL</td><td>Bangkok</td><td>0991325484</td><td></td><td>KASITHBK</td></tr><tr><td>TRY</td><td>Turkiye Garanti Bankasi AS</td><td>Istanbul</td><td>7R600006200093000006499617</td><td></td><td>TGBATRISO93</td></tr><tr><td>USD</td><td>Wells Fargo Bank, N.A.</td><td>San Francisco</td><td>00028634050723</td><td>121000248</td><td>WFBIUS6S</td></tr></tbody></table>"
+        },
+        "text": "ccy respondent bank City Account number Clearingcode SwiftID AED First Abu Dhabi Bank Dubai AE580354022003182270014 NBADAEAA AUD Australia and New Zealand Melbourne 201087AUD00001 ANZBAU3MXXX Banking Group Limited BHD Arab Bank PLC Manama BHO5ARAB02002700610920 ARABBHBMMAN CAD Toronto Dominion Bank, The Toronto 0360012149351 \u20acC000400732 TDOMCATTTOR CHF Credit Suisse Zurich CH0504835098650033000 CRESCHZZ80A CNH Bank of China Hong Kong 1287560117612 BKCHHKHHXXX CZK Komercni Banka AS Prague \u20acZ3901000000000014460227 KOMBCZPPXXX DKK Nordea Bank Danmark A/S Copenhagen DK9820005000400134 NDEADKKK EUR Deutsche Bank AG Frankfurt DE79500700100958748600 DEUTDEFF GBP _ National Westminster Bank PLC London GBO4NWBK60000404408233 NWBKGB2L HKD Hong Kong and Shanghai Bkg. Corp. Ltd. Hong Kong 567874664001 HSBCHKHHHKH HUF \u2014 UniCredit Bank Hungary Zrt. Budapest HU25109000040000000101900012 BACXHUHB ILS Bank Leumi Le Israel B.M. Tel Aviv 1L870108000000022011743 LUMIILIT JOD \u2014 Arab Bank PLC Amman JO69ARAB1000000000100099786900 ARABJOAXTRF JPY Sumitomo Mitsui Banking Corporation Tokyo 4795 SMBCJPJT KRW Standard Chartered Bank Seoul 195-10-011736 SCBLKRSE KWD National Bank of Kuwait Kuwait KW46NBOK0000000000001000122589 = NBOKKWKW MAD Societe Generale Marocainede Banques \u2014 Casablanca 0901849 SGMBMAMC MXN BBVA Bancomer Mexico City 0095000451 BCMRMXMMCOR CLABE: 012180001670307891 NOK \u2014 Nordea Bank Norge ASA Oslo N06360010241424 NDEANOKK NZD ANZ Bank New Zealand Limited Wellington 201087/00001 ANZBNZ22058 PLN Bank Pekao Warsaw PL23124000013149640111120301 PKOPPLPW QAR Standard Chartered Bank Doha QA27SCBL000000000009276435001 SCBLQAQX RON \u2014 BRD-Groupe Societe Generale SA Bucharest ROSIBRDE427SV00471824270 BRDEROBU RUB \u2014Sberbank, Moscow Moscow 30111810500000000807 SABRRUMMOI2 BIK 044525225 INN 9909322001 A/C 30101810400000000225 SAR Banque Saudi Fransi Riyadh A/C 00567800267 BSFRSARI IBAN:SA5655000000000567800267 SEK \u2014 Skandinaviska Enskilda Banken Stockholm $E0250000000052018513532 ESSESESS SGD DBS Bank Limited Singapore 0370035700 DBSSSGSG THB Kasikornbank PCL Bangkok 0991325484 KASITHBK TRY Turkiye Garanti Bankasi AS Istanbul 7R600006200093000006499617 TGBATRISO93 USD Wells Fargo Bank, N.A. SanFrancisco 00028634050723 121000248 WFBIUS6S ZAR Absa Bank South Africa Johannesburg 755876ZAR671201 ZA632005 ABSAZAJJ",
+        "type": "Table"
+    },
+    {
+        "element_id": "794dea1deadd0a573796aba85fdca9d8",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        224.3,
+                        1895.7
+                    ],
+                    [
+                        224.3,
+                        1929.6
+                    ],
+                    [
+                        1281.9,
+                        1929.6
+                    ],
+                    [
+                        1281.9,
+                        1895.7
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.84348,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "d419f5051ffa41d0eed7aac9e9dddc60"
+        },
+        "text": "If you have any questions, please call your Foreign Exchange Specialist.",
+        "type": "Title"
+    },
+    {
+        "element_id": "7274a4a8bca6470dfdbadd992da8113a",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        229.5,
+                        1962.6
+                    ],
+                    [
+                        229.5,
+                        2035.7
+                    ],
+                    [
+                        1572.1,
+                        2035.7
+                    ],
+                    [
+                        1572.1,
+                        1962.6
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.93082,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "794dea1deadd0a573796aba85fdca9d8"
+        },
+        "text": "Additional fees can include, but are not limited to, a fee for bank-initiated transactions, amendment fees, statement fees, and fees assessed by other financial institutions (\u201cbeneficiary and intermediary banks\u201d). In addition to the wire transfer fee, Wells Fargo makes money when converting U.S. dollars to a foreign currency. Wells Fargo\u2019s retail foreign exchange rates differ from other banks, foreign currency providers, and rates found elsewhere online.",
+        "type": "NarrativeText"
+    },
+    {
+        "element_id": "bc6f5855cad36a5ccb399ffea4237241",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        229.4,
+                        2049.6
+                    ],
+                    [
+                        229.4,
+                        2098.6
+                    ],
+                    [
+                        1571.0,
+                        2098.6
+                    ],
+                    [
+                        1571.0,
+                        2049.6
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.90275,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "794dea1deadd0a573796aba85fdca9d8"
+        },
+        "text": "$10 minimum wire amount and maximum limits may apply. Online wires sent internationally from personal accounts are not available 24 hours a day, 7 days a week. Contact Online Customer Service for details at 1-800-956-4442.",
+        "type": "NarrativeText"
+    },
+    {
+        "element_id": "08db4ad0252288f38791386704f9eba3",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        227.7,
+                        2111.8
+                    ],
+                    [
+                        227.7,
+                        2135.1
+                    ],
+                    [
+                        765.8,
+                        2135.1
+                    ],
+                    [
+                        765.8,
+                        2111.8
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.84307,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:18:21",
+            "page_number": 1,
+            "parent_id": "794dea1deadd0a573796aba85fdca9d8"
+        },
+        "text": "\u00a9 2021 Wells Fargo Bank, N.A. All rights reserved. IHA-6945212 (03/21)",
+        "type": "NarrativeText"
+    },
+    {
+        "element_id": "5fa292111d446824db0cf6b6a39a73a3",
+        "metadata": {
+            "file_directory": "standard_settlement_instructions",
+            "filename": "wfbna-usa-ssi-listing.pdf",
+            "filetype": "application/pdf"
+        },
+        "text": "",
+        "type": "PageBreak"
+    }
+]

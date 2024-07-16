@@ -1,0 +1,330 @@
+[
+    {
+        "element_id": "963b17d4d84c531060f5c1d7441aa155",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        105.0,
+                        132.7
+                    ],
+                    [
+                        105.0,
+                        210.5
+                    ],
+                    [
+                        380.2,
+                        210.5
+                    ],
+                    [
+                        380.2,
+                        132.7
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.64555,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:17:22",
+            "page_number": 1
+        },
+        "text": "> usc",
+        "type": "Image"
+    },
+    {
+        "element_id": "b0f577c6a5a2d38f0a85394b461fe387",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        101.9,
+                        287.0
+                    ],
+                    [
+                        101.9,
+                        321.8
+                    ],
+                    [
+                        345.8,
+                        321.8
+                    ],
+                    [
+                        345.8,
+                        287.0
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.47087,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:17:22",
+            "page_number": 1
+        },
+        "text": "Dear Sir / Madam,",
+        "type": "Title"
+    },
+    {
+        "element_id": "42925fb33d2020728be07c43125c3f4c",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        102.7,
+                        328.5
+                    ],
+                    [
+                        102.7,
+                        395.3
+                    ],
+                    [
+                        1401.3,
+                        395.3
+                    ],
+                    [
+                        1401.3,
+                        328.5
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.77622,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:17:22",
+            "page_number": 1,
+            "parent_id": "b0f577c6a5a2d38f0a85394b461fe387"
+        },
+        "text": "We hereby confirm Standard Settlement Instructions of HSBC GIFT CITY Branch (Swift code: HSBCINAA) as below",
+        "type": "NarrativeText"
+    },
+    {
+        "element_id": "d2404ba398cb982ac73ce83f144a1b1a",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        138.6,
+                        459.1
+                    ],
+                    [
+                        138.6,
+                        1085.6
+                    ],
+                    [
+                        1480.3,
+                        1085.6
+                    ],
+                    [
+                        1480.3,
+                        459.1
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.94097,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:17:22",
+            "page_number": 1,
+            "parent_id": "b0f577c6a5a2d38f0a85394b461fe387",
+            "text_as_html": "<table><thead><tr><th>Account Name</th><th>Currency</th><th>| Account Number</th><th>| Account with Bank</th><th>Correspondent Bank Details</th></tr></thead><tbody><tr><td>The Hongkong and Shanghai Banking Corporation Limited, India IFSC Branch SWIFT: HSBCINAA</td><td>| USD</td><td>741-184279-201</td><td>The Hongkong and Shanghai Banking Corporation Limited, Hongkong SWIFT: HSBCHKHHHKH</td><td>HSBC Bank USA NA, NewYork. SWIFT: MRMDUS33 A/c no: 000-04441-5 CHIPS UID: 075995 Fedwire Number : 021001088 ABA Number: 0108</td></tr><tr><td>The Hongkong and Shanghai Banking Corporation Limited, India IFSC Branch] SWIFT: HSBCINAA</td><td>| GBP</td><td>741-184279-202</td><td>The Hongkong and Shanghai Banking Corporation Limited, Hongkong SWIFT: HSBCHKHHHKH</td><td>HSBC Bank PLC, London SWIFT: MIDLGB22 A/c no: 35168943 IBAN: GB56 MIDL 4005 1535 1689 43</td></tr><tr><td>The Hongkong and Shanghai Banking Corporation Limited, India IFSC Branch SWIFT: HSBCINAA</td><td>| EUR</td><td>741-184279-220</td><td>The Hongkong and Shanghai Banking Corporation Limited, Hongkong SWIFT: HSBCHKHHHKH</td><td>HSBC France, Paris SWIFT: CCFRFRPP IBAN: FR7630056000100010000405731</td></tr><tr><td>The Hongkong and Shanghai Banking Corporation Limited, India IFSC Branch SWIFT: HSBCINAA</td><td>| SGD</td><td>741-414288-216</td><td>The Hongkong and Shanghai Banking Corporation Limited, Hongkong SWIFT: HSBCHKHHHKH</td><td>The Hongkong and Shanghai Banking Corporation Limited, Singapore SWIFT: HSBCSGSG A/e no: 141-311787-001</td></tr></tbody></table>"
+        },
+        "text": "Account Name Currency | Account Number | Account with Bank Correspondent Bank Details The Hongkong and Shanghai | USD 741-184279-201 The Hongkong and Shanghai HSBC Bank USA NA, NewYork. Banking Corporation Banking Corporation Limited, SWIFT: MRMDUS33 Limited, India IFSC Branch Hongkong A/c no: 000-04441-5 SWIFT: HSBCINAA SWIFT: HSBCHKHHHKH CHIPS UID: 075995 Fedwire Number : 021001088 ABA Number: 0108 The Hongkong and Shanghai | GBP 741-184279-202 The Hongkong and Shanghai HSBC Bank PLC, London Banking Corporation Banking Corporation Limited, SWIFT: MIDLGB22 Limited, India IFSC Branch] Hongkong A/c no: 35168943 SWIFT: HSBCINAA SWIFT: HSBCHKHHHKH IBAN: GB56 MIDL 4005 1535 1689 43 The Hongkong and Shanghai | EUR 741-184279-220 The Hongkong and Shanghai HSBC France, Paris Banking Corporation Banking Corporation Limited, SWIFT: CCFRFRPP Limited, India IFSC Branch Hongkong IBAN: SWIFT: HSBCINAA SWIFT: HSBCHKHHHKH FR7630056000100010000405731 The Hongkong and Shanghai | SGD 741-414288-216 The Hongkong and Shanghai The Hongkong and Shanghai Banking Corporation Limited, India IFSC Branch SWIFT: HSBCINAA Banking Corporation Limited, Hongkong SWIFT: HSBCHKHHHKH Banking Corporation Limited, Singapore SWIFT: HSBCSGSG A/e no: 141-311787-001",
+        "type": "Table"
+    },
+    {
+        "element_id": "e690e6aff899b827c6277e3dff4f440f",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        134.6,
+                        1112.3
+                    ],
+                    [
+                        134.6,
+                        1136.8
+                    ],
+                    [
+                        552.0,
+                        1136.8
+                    ],
+                    [
+                        552.0,
+                        1112.3
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.66127,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:17:22",
+            "page_number": 1,
+            "parent_id": "b0f577c6a5a2d38f0a85394b461fe387"
+        },
+        "text": "Please use /PPRO/ and /OUR/ in field 72",
+        "type": "NarrativeText"
+    },
+    {
+        "element_id": "8bb5d3ddf8f426529fd301de8ed5010a",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        101.5,
+                        1195.2
+                    ],
+                    [
+                        101.5,
+                        1226.1
+                    ],
+                    [
+                        656.8,
+                        1226.1
+                    ],
+                    [
+                        656.8,
+                        1195.2
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.79042,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:17:22",
+            "page_number": 1,
+            "parent_id": "b0f577c6a5a2d38f0a85394b461fe387"
+        },
+        "text": "Always refer to our website for latest SSI",
+        "type": "NarrativeText"
+    },
+    {
+        "element_id": "93c1a17f577fa06b84edadcd93ad2376",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        97.7,
+                        1947.4
+                    ],
+                    [
+                        97.7,
+                        1971.9
+                    ],
+                    [
+                        881.9,
+                        1971.9
+                    ],
+                    [
+                        881.9,
+                        1947.4
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.86995,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:17:22",
+            "page_number": 1
+        },
+        "text": "The Hongkong and Shanghai Banking Corporation Limited",
+        "type": "Title"
+    },
+    {
+        "element_id": "224c60f103f822ba0626d825f17d7e03",
+        "metadata": {
+            "coordinates": {
+                "layout_height": 2200,
+                "layout_width": 1700,
+                "points": [
+                    [
+                        94.6,
+                        2012.8
+                    ],
+                    [
+                        94.6,
+                        2095.8
+                    ],
+                    [
+                        675.0,
+                        2095.8
+                    ],
+                    [
+                        675.0,
+                        2012.8
+                    ]
+                ],
+                "system": "PixelSpace"
+            },
+            "detection_class_prob": 0.76901,
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf",
+            "languages": [
+                "eng"
+            ],
+            "last_modified": "2024-06-30T15:17:22",
+            "page_number": 1,
+            "parent_id": "93c1a17f577fa06b84edadcd93ad2376"
+        },
+        "text": "Gift City Branch, Unit No. 504 & 505, Sth floor, Si ture Building at Block 13-B, Zone | at GIFT SEZ, GIFT City, Gandhinagar \u2014 382355, Gujarat, India Incorporated in Hong Kong SAR with limited liability",
+        "type": "NarrativeText"
+    },
+    {
+        "element_id": "9f6ef57ecd68f13fa48a91726f73ca05",
+        "metadata": {
+            "file_directory": "standard_settlement_instructions",
+            "filename": "standard-settlement-instructions.pdf",
+            "filetype": "application/pdf"
+        },
+        "text": "",
+        "type": "PageBreak"
+    }
+]
